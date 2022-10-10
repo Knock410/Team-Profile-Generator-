@@ -31,11 +31,14 @@ const team = []
   function managerPrompt(){
     inquirer.prompt(managerQuestions).then((answers) => {
       console.log(answers);
+      engineerPrompt();
     });
   }
 
-  managerPrompt();
-// //menu questions
+ 
+
+  
+// menu questions
 //    const additonalTeamMemebersQuestions = [
 //     {
 //       type: "list",
@@ -44,28 +47,33 @@ const team = []
 //       choices: ["Engineer", "Intern", "None"],
 //     },
 
-//     // const engineerQuestions = [
-//       {
-//         type: "input",
-//         name: "engineerName",
-//         message: "What is the engineer's name?",
-//       },
-//       {
-//         type: "input",
-//         name: "engineerId",
-//         message: "What is their employee ID?",
-//       },
-//       {
-//         type: "input",
-//         name: "email",
-//         message: "What is their email address?",
-//       },
-//       {
-//         type: "input",
-//         name: "gitHub",
-//         message: "What is their GitHub username?",
-//       },
-//   ];
+      const engineerQuestions = [
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the engineer's name?",
+      },
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is their employee ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is their email address?",
+      },
+      {
+        type: "input",
+        name: "gitHub",
+        message: "What is their GitHub username?",
+      },
+  ];
+  function engineerPrompt(){
+    inquirer.prompt(engineerQuestions).then((answers) => {
+      console.log(answers);
+    });
+  }
 
 //      const internQuestions = [
 //       {
@@ -118,3 +126,5 @@ const team = []
 //     }
   
 //  promptMenu();
+
+managerPrompt();
