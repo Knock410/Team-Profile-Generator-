@@ -31,21 +31,22 @@ const team = []
   function managerPrompt(){
     inquirer.prompt(managerQuestions).then((answers) => {
       console.log(answers);
-      engineerPrompt();
+      menuPrompt();
     });
   }
 
  
 
   
-// menu questions
-//    const additonalTeamMemebersQuestions = [
-//     {
-//       type: "list",
-//       name: "additionalEmployees",
-//       message: "Would you like to add the following team members?",
-//       choices: ["Engineer", "Intern", "None"],
-//     },
+//  menu questions
+   const additonalTeamMemebersQuestions = [
+    {
+      type: "list",
+      name: "additionalEmployees",
+      message: "Would you like to add the following team members?",
+      choices: ["Engineer", "Intern", "None"],
+    },
+   ];
 
       const engineerQuestions = [
       {
@@ -75,29 +76,34 @@ const team = []
     });
   }
 
-//      const internQuestions = [
-//       {
-//         type: "input",
-//         name: "internName",
-//         message: "What is the intern's name?",
-//       },
-//       {
-//         type: "input",
-//         name: "internId",
-//         message: "What is their employee ID?",
-//       },
-//       {
-//         type: "input",
-//         name: "email",
-//         message: "What is their email address?",
-//       },
-//       {
-//         type: "input",
-//         name: "school",
-//         message: "What school did they go to?",
-//       },
-//      ];
-
+     const internQuestions = [
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the intern's name?",
+      },
+      {
+        type: "input",
+        name: "internId",
+        message: "What is their employee ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is their email address?",
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "What school did they go to?",
+      },
+     ];
+     function internPrompt(){
+      inquirer.prompt(internQuestions).then((answers) => {
+        console.log(answers);
+      });
+    }
+  
 
 
 
@@ -111,20 +117,21 @@ const team = []
 // }
 
 
-// function promptMenu() {
-//   inquirer.prompt(additonalTeamMemebersQuestions).then((answers) => {
-//     console.log(answers);
-//     if (answers.otherEmployees === "Engineer") {
-//       promptEngineer();
-//        .then(answers => {
-//           console.log(answers);
-//     }
-//     if (answers.otherEmployees === "Intern") {
-//       promptIntern();
-//        .then(answers => {
-//           console.log(answers);
-//     }
+function  menuPrompt() {
+  inquirer.prompt(additonalTeamMemebersQuestions).then((answers) => {
+    console.log(answers);
+    if (answers.additionalEmployees === "Engineer") {
+      engineerPrompt();
+      
+    }
+    if (answers.additionalEmployees === "Intern") {
+    internPrompt();
+    } 
+    });
   
-//  promptMenu();
+  }
+
+  
+
 
 managerPrompt();
