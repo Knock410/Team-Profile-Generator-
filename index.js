@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const team = []
  const fs = require("fs");
-//  const generateHtml = require();
+const generateHtml = require('./src/generateHtml');
+const Manager = require('./lib/Manager.js')
 
 
  const managerQuestions = [
@@ -31,6 +32,8 @@ const team = []
   function managerPrompt(){
     inquirer.prompt(managerQuestions).then((answers) => {
       console.log(answers);
+      const manager = new Manager(answers.managerName, answers.employeeId, answers.officeNumber, answers.email)
+      team.push(manager);
       menuPrompt();
     });
   }
@@ -108,13 +111,6 @@ const team = []
 
 
 
-//  function makeHtml(){ 
-//   fs.writeFile('index.html', generateHtml(team),err => {
-//     if (err) throw err;
-  
-//     console.log('Your team is ready!');
-//  });
-// }
 
 
 function  menuPrompt() {
@@ -127,11 +123,22 @@ function  menuPrompt() {
     if (answers.additionalEmployees === "Intern") {
     internPrompt();
     } 
+
+    if (answers.additionalEmployees=== "None") {
+      makeHtml()
+  }
     });
   
   }
 
   
+ function makeHtml(){ 
+  fs.writeFile('index.html', generateHtml(team),err => {
+    if (err) throw err;
+  
+    console.log('Your team is ready!');
+ });
+}
 
 
 managerPrompt();
