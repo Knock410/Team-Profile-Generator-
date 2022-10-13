@@ -1,9 +1,11 @@
 const inquirer = require('inquirer');
 const team = []
  const fs = require("fs");
+ const Employee = require("./lib/Employee.js")
 const generateHtml = require('./src/generateHtml');
 const Manager = require('./lib/Manager.js')
-
+const Intern = require("./lib/Intern.js");
+const Engineer = require("./lib/Engineer.js");
 
  const managerQuestions = [
     {
@@ -74,8 +76,11 @@ const Manager = require('./lib/Manager.js')
       },
   ];
   function engineerPrompt(){
-    inquirer.prompt(engineerQuestions).then((answers) => {
-      console.log(answers);
+    inquirer.prompt(engineerQuestions).then((engineerAnswers) => {
+      console.log(engineerAnswers);
+      const engineer = new Engineer(engineerAnswers.engineerName,engineerAnswers.engineerId,engineerAnswers.gitHub)
+      team.push(engineer)
+      menuPrompt();
     });
   }
 
@@ -102,8 +107,12 @@ const Manager = require('./lib/Manager.js')
       },
      ];
      function internPrompt(){
-      inquirer.prompt(internQuestions).then((answers) => {
-        console.log(answers);
+      inquirer.prompt(internQuestions).then((internAnswers) => {
+        console.log(internAnswers);
+        const intern = new Intern(internAnswers.internName, internAnswers.internId, internAnswers.email, internAnswers.school)
+    team.push(intern)
+    menuPrompt();
+
       });
     }
   
