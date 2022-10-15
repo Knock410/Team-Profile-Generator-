@@ -1,9 +1,4 @@
 
-
-
-function generateHtml(team) {
-  console.log(team)
-  return`
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -18,29 +13,20 @@ function generateHtml(team) {
           <h1>The Crew</h1>
       </div>
       <div class="d-flex justify-content-around p-3">
-      ${team.map(teamMember => {
-          let form
-          if(teamMember.getRole() === "Manager")form = teamMember.getOfficeNumber()
-          if(teamMember.getRole() === "Engineer")form = teamMember.getGithub()
-          if(teamMember.getRole() === "Intern")form = teamMember.getSchool()
-          return`
+      
             <div class="card h-100 m-3 w-100">
           <div class="card-body text-bg-primary text-center">
-            <h4 class="card-title">${teamMember.getName()}</h4>
-            <h5 class="card-text">${teamMember.getRole()}</h5>
+            <h4 class="card-title">f</h4>
+            <h5 class="card-text">Manager</h5>
           </div>
           <ul class="list-group list-group-flush text-center">
-            <li class="list-group-item">${teamMember.getEmail()}</li>
-            <li class="list-group-item">${teamMember.getId()}</li>
-            <li class="list-group-item">${form}</li>
+            <li class="list-group-item">Email:<a href="mailto:"></a></li>
+            <li class="list-group-item">ID: f</li>
+            <li class="list-group-item">Office #: ff</li>
           </ul>
           </div>
-          `
-      }) }
+          
       </div>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
-  </html>`
-  }
-  
-  module.exports = generateHtml
+  </html>
