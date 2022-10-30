@@ -1,6 +1,6 @@
 
 const Employee = require('../lib/Employee.js')
-
+//Employee tests
 test('get employee ',() => {
     const employee = new Employee( 'Enoch', '410','enoch10evelyn@gmail.com')
     expect(employee.name).toBe('Enoch')

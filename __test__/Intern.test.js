@@ -1,4 +1,5 @@
 const Intern = require("../lib/Intern.js");
+//Intern tests
 test("get intern", () => {
   const intern = new Intern(
     "Enoch",

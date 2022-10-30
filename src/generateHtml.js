@@ -1,5 +1,5 @@
 
-
+//Function to generate HTML taking the team array from index.js as the aggrument to allow for each team member answers to be displayed 
 
 function generateHtml(team) {
   console.log(team)

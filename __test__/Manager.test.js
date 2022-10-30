@@ -1,5 +1,5 @@
 const Manager = require('../lib/Manager.js')
-
+//Manager tests
 test("get manager", () => {
     const manager = new Manager("Enoch", "410", "enoch10evelyn@gmail.com", "6")
     expect(manager.name).toBe('Enoch')

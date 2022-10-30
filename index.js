@@ -38,8 +38,8 @@ function managerPrompt() {
     const manager = new Manager(
       answers.managerName,
       answers.employeeId,
-      answers.officeNumber,
-      answers.email
+      answers.email,
+      answers.officeNumber
     );
     team.push(manager);
     menuPrompt();
@@ -85,7 +85,9 @@ function engineerPrompt() {
     const engineer = new Engineer(
       engineerAnswers.engineerName,
       engineerAnswers.engineerId,
+      engineerAnswers.email,
       engineerAnswers.gitHub
+    
     );
     team.push(engineer);
     menuPrompt();
